@@ -1,7 +1,7 @@
 # The OPynSim Ecosystem Handbook
 
 <h1 align="center">
-    <img src="docs/source/_static/handbook_logo.svg" alt="Handbook banner" />
+    <img src="source/_static/handbook_logo.svg" alt="Handbook banner" />
 </h1>
 
 This is the source code behind the OPynSim ecosystem handbook, which guides
