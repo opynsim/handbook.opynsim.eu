@@ -1,3 +1,7 @@
+> [!CAUTION]
+> This is currently **PRE-ALPHA**. You can (of course) read it, but high-level
+> decisions are still being made (structure, what libraries to feature, etc.).
+
 # The OPynSim Ecosystem Handbook
 
 <h1 align="center">
@@ -5,7 +9,8 @@
 </h1>
 
 This is the source code behind the OPynSim ecosystem handbook, which guides
-readers through setting up an open-source software environment and using it for musculoskeletal modeling.
+readers through setting up and using an open-source software environment for
+musculoskeletal modeling.
 
 ## Building
 
