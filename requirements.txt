@@ -1,0 +1,6 @@
+sphinx==9.1.0
+sphinx-book-theme==1.4.0
+sphinx-copybutton==0.5.2
+sphinx-autobuild==2025.8.25
+opensim==4.6
+opynsim==0.0.7
