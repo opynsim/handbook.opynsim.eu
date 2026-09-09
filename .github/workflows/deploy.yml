@@ -1,0 +1,47 @@
+name: Deploy Sphinx Handbook
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python Dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build
+        run: |
+          sphinx-build -b html source/ build/
+
+      - name: Deploy
+        env:
+          SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          HOST: ${{ secrets.DEPLOY_SERVER }}
+          USER: ${{ secrets.DEPLOY_USER }}
+        run: |
+          # Setup deployer ssh key.
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          # Add server to `known_hosts` to prevent the MITM prompt.
+          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          chmod 644 ~/.ssh/known_hosts
+
+          # Deploy
+          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${USER}@${HOST}:/var/www/handbook.opynsim.eu/"
+
