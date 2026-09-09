@@ -35,7 +35,7 @@ jobs:
           # Strip any accidental whitespace/newlines from secrets
           CLEAN_USER=$(echo "$USER" | xargs)
           CLEAN_HOST=$(echo "$HOST" | xargs)
-          set +x
+          set -x
 
           # Set up key
           mkdir -p ~/.ssh
