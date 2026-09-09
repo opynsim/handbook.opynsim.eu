@@ -1,8 +1,8 @@
-project = 'The OPynSim Ecosystem Handbook'
-copyright = '2026, Adam Kewley'
-author = 'Adam Kewley'
-github_username = 'adamkewley'
-github_repository = 'https://github.com/opynsim/handbook.opynsim.eu'
+project = 'Pragmatic Musculoskeletal Modelling'
+copyright = '2026, Contributors to the Pragmatic Musculoskeletal Modelling Repository'
+author = 'The Musculoskeletal Modelling Community'
+github_username = 'opynsim'
+github_repository = 'https://github.com/opynsim/pragmatic.opynsim.eu'
 
 # Number figures (e.g. Fig. 1, Fig. 2)
 numfig = True
@@ -16,8 +16,8 @@ exclude_patterns = []
 
 html_theme = 'sphinx_book_theme'
 html_static_path = ['_static']
-html_logo = '_static/handbook_banner_vertical.svg'
-html_favicon = '_static/handbook_logo.svg'
+html_logo = '_static/banner_vertical.svg'
+html_favicon = '_static/logo.svg'
 html_theme_options = {
     # Remove search/persistent components from the header
     "navbar_persistent": [],

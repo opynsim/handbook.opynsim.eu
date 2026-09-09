@@ -1,4 +1,4 @@
-name: Deploy Sphinx Handbook
+name: Build and Deploy Main Branch
 
 on:
   push:
@@ -43,5 +43,5 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
           # Deploy
-          rsync -vvv -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${USER}@${HOST}:/var/www/handbook.opynsim.eu/"
+          rsync -vvv -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${USER}@${HOST}:/var/www/${HOST}/"
 

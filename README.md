@@ -1,22 +1,19 @@
-> [!CAUTION]
-> This is currently **PRE-ALPHA**. You can (of course) read it, but high-level
-> decisions are still being made (structure, what libraries to feature, etc.).
-
-# The OPynSim Ecosystem Handbook
-
 <h1 align="center">
-    <img src="source/_static/handbook_logo.svg" alt="Handbook banner" />
+    <a href="https://pragmatic.opynsim.eu">
+        <img src="source/_static/banner_horizontal.svg" alt="Banner" />
+    </a>
 </h1>
 
-This is the source code behind the OPynSim ecosystem handbook, which guides
-readers through setting up and using an open-source software environment for
-musculoskeletal modeling.
+This is the source code behind the [Pragmatic Musculoskeletal Modelling](https://pragmatic.opynsim.eu)
+ebook, which guides readers through the practical steps of setting up and using
+open-source software for musculoskeletal modelling.
+
 
 ## Building
 
-This is a mostly-standard Sphinx documentation project that also uses `opynsim`
-and `opensim`, where appropriate (e.g. to generate example images). Here is
-how you can build it with `uv`:
+This is a Sphinx documentation project that also installs the simulation
+libraries (e.g. `opynsim` and `opensim`) for testing and image-generation
+purposes. Here is how you can build it with `uv`:
 
 ```bash
 #!/usr/bin/env bash
