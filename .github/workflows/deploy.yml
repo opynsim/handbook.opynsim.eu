@@ -32,16 +32,22 @@ jobs:
           HOST: ${{ secrets.DEPLOY_SERVER }}
           USER: ${{ secrets.DEPLOY_USER }}
         run: |
-          # Setup deployer ssh key.
+          # Strip any accidental whitespace/newlines from secrets
+          CLEAN_USER=$(echo "$USER" | xargs)
+          CLEAN_HOST=$(echo "$HOST" | xargs)
+
+          # Set up key
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           echo "$SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
 
-          # Add server to `known_hosts` to prevent the MITM prompt.
-          ssh-keyscan -H "$HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # Add host key
+          ssh-keyscan -H "$CLEAN_HOST" >> ~/.ssh/known_hosts 2>/dev/null
           chmod 644 ~/.ssh/known_hosts
 
-          # Deploy
-          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${USER}@${HOST}:/var/www/handbook.opynsim.eu/"
+          # Sync using clean variables
+          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${CLEAN_USER}@${CLEAN_HOST}:/var/www/handbook.opynsim.eu/"
+
+          rm -f ~/.ssh/deploy_key
 
