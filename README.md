@@ -9,7 +9,7 @@ ebook, which guides readers through the practical steps of setting up and using
 open-source software for musculoskeletal modelling.
 
 
-## Building
+## Building the Handbook from Source
 
 This is a Sphinx documentation project that also installs the simulation
 libraries (e.g. `opynsim` and `opensim`) for testing and image-generation
