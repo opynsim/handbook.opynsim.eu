@@ -36,6 +36,11 @@ jobs:
           CLEAN_USER=$(echo "$USER" | xargs)
           CLEAN_HOST=$(echo "$HOST" | xargs)
           set -x
+          set +e
+
+          echo "=== DIAGNOSTICS ==="
+          echo "Target User: '$CLEAN_USER'"
+          echo "Target Host: '$CLEAN_HOST'"
 
           # Set up key
           mkdir -p ~/.ssh
