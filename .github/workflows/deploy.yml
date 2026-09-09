@@ -47,7 +47,7 @@ jobs:
           chmod 644 ~/.ssh/known_hosts
 
           # Sync using clean variables
-          rsync -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${CLEAN_USER}@${CLEAN_HOST}:/var/www/handbook.opynsim.eu/"
+          rsync -vvv -avz --delete -e "ssh -i ~/.ssh/deploy_key" build/ "${CLEAN_USER}@${CLEAN_HOST}:/var/www/handbook.opynsim.eu/"
 
           rm -f ~/.ssh/deploy_key
 
